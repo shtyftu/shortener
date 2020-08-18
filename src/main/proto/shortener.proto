@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package io.shty.protocol;
+option java_multiple_files = true;
+
+service TinyUrlService {
+  rpc GetMini (GetMiniRequest) returns (GetMiniResponse);
+  rpc GetMaxi (GetMaxiRequest) returns (GetMaxiResponse);
+}
+
+message GetMiniRequest {
+  string original_url = 1;
+}
+
+message GetMiniResponse {
+  string minified_url = 1;
+}
+
+message GetMaxiRequest {
+  string minified_url = 1;
+}
+
+message GetMaxiResponse {
+    string original_url = 1;
+}
+
